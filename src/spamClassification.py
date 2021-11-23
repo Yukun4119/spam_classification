@@ -74,7 +74,7 @@ class spamClassification:
 			x.append([attrL[i],attrU[i], attrH[i], attrC[i]])
 		y = label
 
-		x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=0.2,random_state=40)
+		x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=0.2,random_state=42)
 		model = dtc(criterion = 'entropy', max_depth = 4)
 		model.fit(x_train, y_train)
 		pred_model = model.predict(x_test)
@@ -105,7 +105,7 @@ class spamClassification:
 
 def main():
 	bot = spamClassification()
-	dataPathList = ["./data/YouTube-Spam-Collection-v1/Youtube01-Psy.csv", "./data/YouTube-Spam-Collection-v1/Youtube02-KatyPerry.csv"]
+	dataPathList = ["../data/Youtube01-Psy.csv", "../data/Youtube02-KatyPerry.csv"]
 	modelPath = "./my.model"
 	bot.training(dataPathList, modelPath)
 
